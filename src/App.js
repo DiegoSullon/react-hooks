@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Header from './components/Header'
+import Characters from './components/Characters'
+import { useContext } from 'react'
+import { ThemeContext } from './context/ThemeContext'
 
-function App() {
+function App () {
+  const { theme} = useContext(ThemeContext)
+  const style = theme
+    ? {
+        color: 'white',
+        backgroundColor: '#323940'
+      }
+    : {
+        color: 'black',
+        backgroundColor: 'white'
+      }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App' style={style}>
+      <Header />
+      <h1>Hola mundo</h1>
+      <Characters />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
